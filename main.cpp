@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     int choice=0;
     string wordInput;
     string line = "";
-    cout << "Jeigu norite suhashinti ivesta inputa - spauskite 1, jei skaityti is failo - 0"<<endl;
+    cout << "Jeigu norite suhashinti ivesta inputa - spauskite 1, jei skaityti is failo - 0, 2 - vykdyti testa su random zodziais"<<endl;
     cin >> choice;
     if (choice == 0)
     {
@@ -31,6 +31,13 @@ int main(int argc, char *argv[])
     {
         cin>>wordInput;
         cout<<hashing(wordInput);
+    }
+    else if (choice == 2)
+    {
+        auto beginReadRand = std::chrono::system_clock::now();
+        test4RandomWords();
+        auto endReadRand = std::chrono::system_clock::now();
+        cout << "Skaitymo laikas: "<< (double)std::chrono::duration_cast<std::chrono::milliseconds>(endReadRand - beginReadRand).count() / 1000<< "s" << endl;
     }
     return 0;
 
