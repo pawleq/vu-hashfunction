@@ -20,7 +20,7 @@ string hashing(string text = "") //mixuojame stringo ascii values su ivairiom op
     stringstream streamas;
     streamas << hex << hasha;
     string hashOut = (streamas.str());
-    while (hashOut.length() != 16)
+    while (hashOut.length() != 64)
     {
         for (int i : hashOut)
         {
@@ -29,9 +29,9 @@ string hashing(string text = "") //mixuojame stringo ascii values su ivairiom op
             streamas << hex << i;
             hashOut += streamas.str();
         }
-        if (hashOut.length() > 16)
+        if (hashOut.length() > 64)
         {
-            hashOut = hashOut.substr(0, 16); //substractina iki 16 ilgio hasho
+            hashOut = hashOut.substr(0, 64); //substractina iki 16 ilgio hasho
         }
     }
     return hashOut;
