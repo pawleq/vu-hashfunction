@@ -17,9 +17,11 @@ using std::istreambuf_iterator;
 using std::ofstream;
 using std::string;
 using std::stringstream;
+using std::min;
+using std::bitset;
 
 #define RANDOM_LENGTH 5
 #define RANDOM_COUNT 100000
-
-void test4RandomWords();
+#define SIMILAR_LENGHT 5
+#define SIMILAR_COUNT 100000
 

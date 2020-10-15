@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     int choice=0;
     string wordInput;
     string line = "";
-    cout << "Jeigu norite suhashinti ivesta inputa - spauskite 1, jei skaityti is failo - 0, 2 - vykdyti testa su random zodziais"<<endl;
+    cout << "Jeigu norite suhashinti ivesta inputa - spauskite 1, jei skaityti is failo - 0, 2 - vykdyti testa su random zodziais, 3 - vykdyti testa su stringu porom"<<endl;
     cin >> choice;
     if (choice == 0)
     {
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
             }
         }
         auto endRead = std::chrono::system_clock::now();
-        cout << "Skaitymo laikas: "<< (double)std::chrono::duration_cast<std::chrono::milliseconds>(endRead - beginRead).count() / 1000<< "s" << endl;
+        cout << "Vykdymo laikas: "<< (double)std::chrono::duration_cast<std::chrono::milliseconds>(endRead - beginRead).count() / 1000<< "s" << endl;
     }
     else if (choice == 1)
     {
@@ -37,7 +37,14 @@ int main(int argc, char *argv[])
         auto beginReadRand = std::chrono::system_clock::now();
         test4RandomWords();
         auto endReadRand = std::chrono::system_clock::now();
-        cout << "Skaitymo laikas: "<< (double)std::chrono::duration_cast<std::chrono::milliseconds>(endReadRand - beginReadRand).count() / 1000<< "s" << endl;
+        cout << "Vykdymo laikas: "<< (double)std::chrono::duration_cast<std::chrono::milliseconds>(endReadRand - beginReadRand).count() / 1000<< "s" << endl;
+    }
+    else if (choice == 3)
+    {
+        auto beginReadRand = std::chrono::system_clock::now();
+        testSimilar();
+        auto endReadRand = std::chrono::system_clock::now();
+        cout << "Vykdymo laikas: "<< (double)std::chrono::duration_cast<std::chrono::milliseconds>(endReadRand - beginReadRand).count() / 1000<< "s" << endl;
     }
     return 0;
 
