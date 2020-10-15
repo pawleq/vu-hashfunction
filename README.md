@@ -22,4 +22,21 @@ hex'as).
 7. Bent minimaliai pakeitus įvedimą, pvz.vietoj "Lietuva" pateikus "lietuva", maišos funkcijos rezultatas-kodas turi skirtis iš esmės, t.y.,
 tenkinamas taip vadinamas lavinos efektas (angl. Avalanche effect). Žemiau esančioje lentelėje iliustruota tai naudojant SHA256:
 
-![alt text](https://prnt.sc/uzzub4)https://prnt.sc/uzzub4)
+https://prnt.sc/uzzub4)https://prnt.sc/uzzub4
+
+Testas I - konstitucijos eiluciu hashinimas - pavyko. Rezultatas atsiranda "results.txt" faile.
+
+https://prnt.sc/uzzwq6
+
+Zemiau esanciuose testuose random stringu count yra 100000, o ilgis 5.
+
+                                |
+                                V
+                 
+Testas II - collision'u testas su random simboliu stringais - tikriausiai pavyko. Rezultatas yra collisionu kiekis, kuris isvedamas **cout** pagalba.
+
+https://prnt.sc/uzzy0b
+
+Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšmes. 
+
+https://prnt.sc/uzzyu3
