@@ -37,6 +37,6 @@ Testas II - collision'u testas su random simboliu stringais - tikriausiai pavyko
 
 https://prnt.sc/uzzy0b
 
-Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšmes. 
+Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšmes naudojant 5 simboliu ilgumo stringus, kuriu vienas simbolis skiriasi kiekvienoje poroje.
 
 https://prnt.sc/uzzyu3
