@@ -1,25 +1,30 @@
 #include "header.h"
 
+int coll = 0;
+double minDif = 1.0;
+double totalDif = 0;
+double maxDif = 0;
+
 string hashing(string text = "") //mixuojame stringo ascii values su ivairiom operacijomis, apkeitinejam bitus
 {
-    unsigned int hasha = 8;
+    int hasha = 8;
     for (auto i : text)
     {
         int hashb = int(i);
         hasha += hashb * hashb;
-        hasha += (hashb % hasha);
+        hasha -= (hashb % hasha);
         hasha +=  hasha << 5;
-        hasha %= (hasha & hashb) - (hashb + 14) * (hashb / 4);
+        hasha -= (hasha & hashb) - (hashb + 14) * (hashb / 4);
     }
-    hasha = hasha >> 1;
+    hasha = hasha >> 2;
     stringstream streamas;
     streamas << hex << hasha;
     string hashOut = (streamas.str());
     while (hashOut.length() != 16)
     {
-        for (unsigned int i : hashOut)
+        for (int i : hashOut)
         {
-            i = (i + hashOut.length()) * hasha >> 4;
+            i = (i*i) * (hasha*hasha);
             streamas.str("");
             streamas << hex << i;
             hashOut += streamas.str();
@@ -32,35 +37,31 @@ string hashing(string text = "") //mixuojame stringo ascii values su ivairiom op
     return hashOut;
 }
 
-string alphaNumericStrings(const int length)   //stack overflow funkcija random alpha-numeric stringam generuoti
+string alphaNumericStrings(int length)   //stack overflow funkcija random alpha-numeric stringam generuoti
 {
-    static const char alphanum[] =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
-    string result("", length);
-    for (int i = 0; i < length; ++i)
+    static const char alphanum[] = "0123456789" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
+    string randomString("", length);
+    for (int i = 0; i < length; i++)
     {
-        result[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
+        randomString[i] = alphanum[rand() % (sizeof(alphanum) - 1)]; //random stringo generavimas, naudojant musu char "alphanum" simbolius
     }
-    return result;
+    return randomString;
 }
 
 void test4RandomWords()   //
 {
-    int coll = 0;
     cout << "Testing....." << "\n";
-    for (int i = 0; i < RANDOM_COUNT; i++)
+    for (int i = 0; i < RCOUNT; i++)
     {
-        string wordA = alphaNumericStrings(RANDOM_LENGTH);
-        string wordB = alphaNumericStrings(RANDOM_LENGTH);
+        string wordA = alphaNumericStrings(RLENGTH);
+        string wordB = alphaNumericStrings(RLENGTH);
         if (hashing(wordA) == hashing(wordB))
         {
             coll++;
         }
     }
     cout << "Rasta collision'u : " << coll << "\n";
-    if (coll == 0)
+    if (coll == 0) //labai reikalinga salyga
         cout<<"Hash funkcija ganetinai saugi."<<endl;
 }
 
@@ -76,9 +77,9 @@ string binary(string word)   //funkcija stringo kiekviena simboli keiciantis i b
 
 double compareInput (string inputA, string inputB)   //comparina identical inputo poras
 {
-    const size_t length = min(inputA.length(), inputB.length());
     int identical = 0;
-
+    double perc;
+    int length = min(inputA.length(), inputB.length());
     for (int i = 0; i < length; i++)
     {
         if (inputA[i] == inputB[i])
@@ -86,26 +87,22 @@ double compareInput (string inputA, string inputB)   //comparina identical input
             identical++;
         }
     }
-    return 1.0 - (double)identical / length;
+    perc = (1.0 - ((double)identical / length));
+    return perc;
 }
 
 void testSimilar()
 {
-    int coll = 0;
-    double minDif = 1.0;
-    double totalDif = 0;
-    double maxDif = 0;
-
     cout << "Similar words collision test" << "\n";
 
-    for (int i = 0; i < SIMILAR_COUNT; i++)   //i cikla deti skaiciu, kuris parodo kiek pory tikrinsim
+    for (int i = 0; i < RCOUNT; i++)   //i cikla deti skaiciu, kuris parodo kiek pory tikrinsim
     {
-        string wordA=alphaNumericStrings(SIMILAR_LENGHT);
+        string wordA=alphaNumericStrings(RLENGTH);
         string wordB;
 
         do   //pakeiciame random stringe viena simboli i toki, kad vienas simbolis poroje skirtusi toje pacioje pozicijoje
         {
-            //int whichSymbol = rand() % SIMILAR_LENGHT; //randomaizinam kuri simboli keisti nuo 1 iki 5 ( 5 yra similar length kuris gali but keiciamas), arba galim naudot tiesiog skaiciu, bet tiketina kad gali su daugiau poru atsirasti collisiniosas
+            //int whichSymbol = rand() % RLENGTH; //randomaizinam kuri simboli keisti nuo 1 iki 5 ( 5 yra similar length kuris gali but keiciamas), arba galim naudot tiesiog skaiciu, bet tiketina kad gali su daugiau poru atsirasti collisiniosas
             string changedSymbol = alphaNumericStrings(1);
             wordB = wordA;
             wordB[3/*whichSymbol*/] = changedSymbol[0];
@@ -117,15 +114,13 @@ void testSimilar()
         string hashb = hashing(wordB);
 
         if (hasha == hashb)
-        {
             coll++;
-        }
 
         string binary1 = binary(hasha);
         string binary2 = binary(hashb);
 
         double difference = compareInput(binary1, binary2);
-        totalDif += difference;
+        totalDif = totalDif + difference;
         if (difference < minDif)
         {
             minDif = difference;
@@ -136,7 +131,7 @@ void testSimilar()
         }
     }
     cout << "Collision'ai: " << coll <<endl;
-    cout << "Min diff: " << minDif * 100 << "\n";
-    cout << "Max diff: " << maxDif * 100 << "\n";
-    cout << "Average diff: " << (totalDif / SIMILAR_COUNT) * 100 << "\n";
+    cout << "Min diff: " << minDif * 100 << endl;
+    cout << "Max diff: " << maxDif * 100 << endl;
+    cout << "Average diff: " << (totalDif / RCOUNT) * 100 << endl;
 }
