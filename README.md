@@ -59,7 +59,7 @@ Vykdymo laikas: 5.642s
 
 Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšmes naudojant 5 simboliu ilgumo stringus, kuriu vienas simbolis skiriasi kiekvienoje poroje.
 
-https://prnt.sc/uzzyu3
+https://prnt.sc/v0e83f
 
 Min diff: 8.59375
 
