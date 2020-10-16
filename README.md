@@ -62,6 +62,9 @@ Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšm
 https://prnt.sc/uzzyu3
 
 Min diff: 8.59375
+
 Max diff: 40.8203
+
 Average diff: 27.9595
+
 Vykdymo laikas: 9.695s
