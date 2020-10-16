@@ -24,11 +24,11 @@ tenkinamas taip vadinamas lavinos efektas (angl. Avalanche effect). Žemiau esan
 
 https://prnt.sc/v0e2y0
 
-#Kaip veikia programa?
+# Kaip veikia programa?
 
 Programa veikia tokiu principu, kad stringas pakeiciamas i ascii value ir tada atliekamos skirtingos operacijos, kurios apkeitineja sio stringo simbolius. Veliau gautas hashas yra pakeiciamas i hexidecimal value ir idedamas i stringstreama. Toliau vykdomas ciklas, kuris padeda hashui but ne ilgesniam kaip 64 simboliu. **hashing** funkcijos rezultatas yra musu 64 simboliu hashas.
 
-#Kaip naudoti programa?
+# Kaip naudoti programa?
 
 1. Paleidus programa gauname opcijas pasirinkti, ar inputa ives pats user, ar norime skaityti is failo, kuris ivedamas kaip cmd argumentas, ar norime patikrinti koliziju kieki su random stringais, arba atlikti testa.
 
@@ -39,6 +39,8 @@ Programa veikia tokiu principu, kad stringas pakeiciamas i ascii value ir tada a
 4. 2 - random stringu collisions testas.
 
 5. 3 - atlikti testa.
+
+# "Testai"
 
 Testas I - konstitucijos eiluciu hashinimas - pavyko. Rezultatas atsiranda "results.txt" faile.
 
