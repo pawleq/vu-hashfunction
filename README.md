@@ -54,12 +54,14 @@ make a copy of stringstream
 
 while length of stringstream isn't 64
 
-  for every symbol in strinstream
-     multiply every symbol by itself and then multiply it by value square
-     create an empty stringstream
-     turn every symbol in to hexadecimal value
-     put changed values in to stringstream and add it to the hashOut string
+    for every symbol in strinstream
+    multiply every symbol by itself and then multiply it by value square
+    create an empty stringstream
+    turn every symbol in to hexadecimal value
+    put changed values in to stringstream and add it to the hashOut string
+    
   if length of new string is longer than 64
+  
      substract it to 64
     
 }
