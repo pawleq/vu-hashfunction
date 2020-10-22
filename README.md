@@ -37,7 +37,9 @@ string hashing()
 >set starting value to 8
 
 >for every symbol in text
-    change string in to ASCII value number
+
+    >change string in to ASCII value number
+    
     multiply value2 by itself and add it to the value
     divide value by value2 and subract it from value
     shift value bits by 5 positions in to left side
