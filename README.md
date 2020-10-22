@@ -33,15 +33,10 @@ Programa veikia tokiu principu, kad stringas pakeiciamas i ascii value ir tada a
 set starting value to 8
 
 for every symbol in text
-
     change string in to ASCII value number
-    
     multiply value2 by itself and add it to the value
-    
     divide value by value2 and subract it from value
-    
     shift value bits by 5 positions in to left side
-    
     divide value by value2, substract it from value + 14 and then multiply by value2/4, finnaly substract all this from value
     
 shift value bits by 2 positions in to the right side
@@ -53,19 +48,12 @@ turn value in to hexadecimal number and put it in stringstream
 make a copy of stringstream
 
 while length of stringstream isn't 64
-
     for every symbol in strinstream
-    
         multiply every symbol by itself and then multiply it by value square
-        
         create an empty stringstream
-        
         turn every symbol in to hexadecimal value
-        
         put changed values in to stringstream and add it to the hashOut string
-        
     if length of new string is longer than 64
-    
         substract it to 64
     
 # Kaip naudoti programa?
