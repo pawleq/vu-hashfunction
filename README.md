@@ -67,29 +67,20 @@ Programa veikia tokiu principu, kad stringas pakeiciamas i ascii value ir tada a
 
 # "Testai"
 
-Testas I - konstitucijos eiluciu hashinimas - pavyko. Rezultatas atsiranda "results.txt" faile.
+Visi testu rezultatai yra nuorodose
+
+Testas I - suhashinti kiekviena konstitucijos eilute - pavyko. Rezultatas atsiranda "results.txt" faile.
 
 https://prnt.sc/uzzwq6
-
-Zemiau esanciuose testuose random stringu count yra 100000, o ilgis 5.
-
-                                |
-                                V
                  
-Testas II - collision'u testas su random simboliu stringais - tikriausiai pavyko. Rezultatas yra collisionu kiekis, kuris isvedamas **cout** pagalba.
+Testas II - collision'u testas su random simboliu stringais. Buvo naudota 25000 stringu su 10 simboliu ilgiu, atitinkamai 100, 500 ir 1000 ilgio stringais. Collisiuonu visais keturiais atvejais nebuvo, tai rodo, kad musu funkcija yra ganetinai saugi. Rezultatas yra collisionu kiekis, kuris isvedamas **cout** pagalba. 
 
-https://prnt.sc/uzzy0b 
+https://prnt.sc/v4pnn2
 
-Vykdymo laikas: 5.642s
+Vykdymo laikas: 6.784s
 
-Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšmes naudojant 5 simboliu ilgumo stringus, kuriu vienas simbolis skiriasi kiekvienoje poroje.
+Testas III - Išveda minimalią, maksimalią ir vidurkines "skirtingumo" reikšmes bitu ir hexu lygmenyje naudojant atitinkamai 25000 stringu po 10,100,500 ir 100 simboliu ilgumo.
 
-https://prnt.sc/v0e83f
+https://prnt.sc/v4pp5b
 
-Min diff: 8.59375
-
-Max diff: 40.8203
-
-Average diff: 27.9595
-
-Vykdymo laikas: 9.695s
+Vykdymo laikas: 10.549s
