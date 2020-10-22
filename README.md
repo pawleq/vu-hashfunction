@@ -30,9 +30,8 @@ Programa veikia tokiu principu, kad stringas pakeiciamas i ascii value ir tada a
 
 # Pseudo kodas
 
-string hashing() 
-
-{
+    string hashing() 
+    {
 
     set starting value to 8
     for every symbol in text
@@ -53,8 +52,7 @@ string hashing()
         put changed values in to stringstream and add it to the hashOut string
     if length of new string is longer than 64
         substract it to 64
-    
-}
+    }
 # Kaip naudoti programa?
 
 1. Paleidus programa gauname opcijas pasirinkti, ar inputa ives pats user, ar norime skaityti is failo, kuris ivedamas kaip cmd argumentas, ar norime patikrinti koliziju kieki su random stringais, arba atlikti testa.
